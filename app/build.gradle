@@ -1,0 +1,8 @@
+plugins { id 'com.android.application'; id 'com.chaquo.python' }
+android { namespace 'com.jordanaijordan.app'; compileSdk 36
+    defaultConfig { applicationId 'com.jordanaijordan.app'; minSdk 24; targetSdk 36; versionCode 1; versionName '1.0.0'; ndk { abiFilters 'arm64-v8a','x86_64' } }
+    buildTypes { release { minifyEnabled false; shrinkResources false; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),'proguard-rules.pro' } }
+    packaging { resources.excludes += ['/META-INF/{AL2.0,LGPL2.1}'] }
+}
+chaquopy { defaultConfig { version = '3.13'; buildPython 'python3.13'; pyc { src = true } } }
+dependencies { implementation 'androidx.activity:activity:1.10.1'; implementation 'androidx.appcompat:appcompat:1.7.0'; implementation 'androidx.webkit:webkit:1.13.0' }
